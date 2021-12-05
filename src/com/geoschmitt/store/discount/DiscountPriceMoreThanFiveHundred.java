@@ -10,9 +10,11 @@ public class DiscountPriceMoreThanFiveHundred extends Discount{
         super(next);
     }
 
-    public BigDecimal calculate(Invoice invoice){
-        if(invoice.getPrice().compareTo(new BigDecimal(500)) > 0)
-            return invoice.getPrice().multiply(new BigDecimal("0.05"));
-        return next.calculate(invoice);
+    public BigDecimal apply(Invoice invoice){
+        return invoice.getPrice().multiply(new BigDecimal("0.05"));
+    }
+
+    public Boolean shouldApply(Invoice invoice){
+        return invoice.getPrice().compareTo(new BigDecimal(500)) > 0;
     }
 }

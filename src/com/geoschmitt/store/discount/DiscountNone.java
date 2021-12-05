@@ -10,7 +10,11 @@ public class DiscountNone extends Discount {
         super(null);
     }
 
-    public BigDecimal calculate(Invoice invoice){
+    public BigDecimal apply(Invoice invoice){
         return BigDecimal.ZERO;
+    }
+
+    public Boolean shouldApply(Invoice invoice){
+        return Boolean.TRUE;
     }
 }

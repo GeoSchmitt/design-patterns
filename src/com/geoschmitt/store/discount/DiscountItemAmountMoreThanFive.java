@@ -10,10 +10,12 @@ public class DiscountItemAmountMoreThanFive extends Discount{
         super(next);
     }
 
-    public BigDecimal calculate(Invoice invoice){
-        if(invoice.getItensAmount() > 5)
-            return invoice.getPrice().multiply(new BigDecimal("0.1"));
-        return next.calculate(invoice);
+    public BigDecimal apply(Invoice invoice){
+        return invoice.getPrice().multiply(new BigDecimal("0.1"));
+    }
+
+    public Boolean shouldApply(Invoice invoice){
+        return invoice.getItensAmount() > 5;
     }
 
 }
