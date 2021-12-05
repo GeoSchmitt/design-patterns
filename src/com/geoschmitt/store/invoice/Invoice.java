@@ -6,8 +6,19 @@ public class Invoice {
 
     private BigDecimal price;
 
-    public Invoice(BigDecimal price) {
+    private int itensAmount;
+
+    public Invoice(BigDecimal price, int itensAmount) {
         this.price = price;
+        this.itensAmount = itensAmount;
+    }
+
+    public int getItensAmount() {
+        return itensAmount;
+    }
+
+    public void setItensAmount(int itensAmount) {
+        this.itensAmount = itensAmount;
     }
 
     public BigDecimal getPrice() {

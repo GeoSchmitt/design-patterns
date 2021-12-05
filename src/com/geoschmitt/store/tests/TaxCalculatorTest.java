@@ -11,7 +11,7 @@ public class TaxCalculatorTest {
 
     public static void main(String[] args){
 
-        Invoice invoice = new Invoice(new BigDecimal("100"));
+        Invoice invoice = new Invoice(new BigDecimal("100"), 2);
         TaxCalculator calculator = new TaxCalculator();
         System.out.println("ISS: " + calculator.calculate(invoice, new ISS()));
         System.out.println("ICMS: " + calculator.calculate(invoice, new ICMS()));
